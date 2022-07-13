@@ -66,6 +66,11 @@ export default function ConverterBox({
     setUnit(e.target.value);
   };
 
+  const handleRevertMetric = () => {
+    const newMetric = result.split(" ")[1];
+    setMetric(newMetric);
+  };
+
   useEffect(() => {
     doConvert({ metric, unit, setResult });
   }, [metric, unit, setResult]);
@@ -89,7 +94,7 @@ export default function ConverterBox({
               <option value="cm">cm → inches</option>
               <option value="inches">inches → cm</option>
             </SelectMenu>
-            <SelectMenuIcon />
+            <SelectMenuIcon onClick={handleRevertMetric} />
           </FlexInputs>
 
           <FlexInputs>
